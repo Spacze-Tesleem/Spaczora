@@ -60,7 +60,7 @@ export default function SpaceZoraNavbar() {
             {/* --- LOGO --- */}
             <Link href="/" className="flex items-center gap-2 group">
               <span className="text-2xl font-bold text-white tracking-tight">
-                Space<span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Zora</span>
+                Spac<span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Zora</span>
               </span>
             </Link>
 
