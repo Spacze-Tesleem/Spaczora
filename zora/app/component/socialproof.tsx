@@ -13,6 +13,7 @@ import {
 
 export default function SocialProof() {
   const [activeHire, setActiveHire] = useState(0);
+  const [dotStates, setDotStates] = useState<boolean[]>([]);
 
   // Simulated "Live" Hires Data
   const recentHires = [
@@ -21,6 +22,11 @@ export default function SocialProof() {
     { role: "Frontend Dev", company: "Vercel", location: "Berlin, DE", time: "12m ago" },
     { role: "Data Scientist", company: "OpenAI", location: "San Fran, USA", time: "18m ago" },
   ];
+
+  // Generate random dot states on client-side only to avoid hydration mismatch
+  useEffect(() => {
+    setDotStates([...Array(48)].map(() => Math.random() > 0.8));
+  }, []);
 
   // Cycle through hires
   useEffect(() => {
@@ -63,11 +69,16 @@ export default function SocialProof() {
           <div className="md:col-span-6 lg:col-span-8 row-span-2 bg-[#0A0A0A] border border-white/10 rounded-3xl p-8 relative overflow-hidden group">
             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
             
-            {/* Abstract Map Dots */}
+            {/* Abstract Map Dots - Fixed hydration issue */}
             <div className="absolute inset-0 opacity-20">
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] grid grid-cols-12 gap-4">
                 {[...Array(48)].map((_, i) => (
-                   <div key={i} className={`w-1 h-1 rounded-full bg-white ${Math.random() > 0.8 ? 'animate-pulse' : 'opacity-20'}`} />
+                   <div 
+                     key={i} 
+                     className={`w-1 h-1 rounded-full bg-white ${
+                       dotStates[i] ? 'animate-pulse' : 'opacity-20'
+                     }`} 
+                   />
                 ))}
               </div>
             </div>
