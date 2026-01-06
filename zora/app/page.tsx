@@ -4,6 +4,9 @@ import SocialProof from "./component/socialproof";
 import Features from "./component/features";
 import HowItWorks from "./component/HowItWorks";
 import TemplateShowcase from "./component/template";
+import TestimonialMasonry from "./component/testimonial";
+import Pricing from "./component/pricing";
+import FAQ from "./component/faq";
 
 export default function Home() {
   return (
@@ -13,6 +16,9 @@ export default function Home() {
       <Features />
       <HowItWorks />
       <TemplateShowcase />
+      <TestimonialMasonry />
+      <Pricing />
+      <FAQ />
     </main>
   );
 }
