@@ -3,7 +3,32 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Quote, ArrowLeft, ArrowRight, Star } from "lucide-react";
+
+// Inline SVG Icons
+const Quote = ({ className }: { className?: string }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-4.716-9-7-9S0 3.75 0 5c0 1.972 2 4 3 5 0-1 .5-4 1-7 1 2 2.75 4 3 5-1 .5-3 3-4 6s-2 8-2 8" />
+    <path d="M15 21c3 0 7-1 7-8V5c0-1.25-4.716-9-7-9s-7 7-7 9c0 1.972 2 4 3 5 0-1 .5-4 1-7 1 2 2.75 4 3 5-1 .5-3 3-4 6s-2 8-2 8" />
+  </svg>
+);
+
+const ArrowLeft = ({ className }: { className?: string }) => (
+  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+  </svg>
+);
+
+const ArrowRight = ({ className }: { className?: string }) => (
+  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+  </svg>
+);
+
+const Star = ({ className }: { className?: string }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+  </svg>
+);
 
 interface Testimonial {
   id: number;
